@@ -1,37 +1,78 @@
-import Link from "next/link";
+"use client";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
 export default function InfoForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    age: 0,
+    height: 0,
+    weight: 0,
+  });
+
+  const router = useRouter();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push("/result");
+  };
+
   return (
-    <Card className="p-6 shadow-lg mx-auto grid max-w-md items-start">
-      <form className="grid gap-4">
+    <Card className="p-6 shadow-lg mx-auto grid max-w-md items-start my-10">
+      <form className="grid gap-4" onSubmit={handleSubmit}>
         <div className="grid gap-2">
           <Label htmlFor="name">Name</Label>
-          <Input id="name" placeholder="Enter your name" />
+          <Input
+            id="name"
+            placeholder="Enter your name"
+            value={formData.name}
+            onChange={handleChange}
+          />
         </div>
         <div className="grid gap-2">
           <Label htmlFor="age">Age</Label>
-          <Input id="age" type="number" placeholder="Enter your age" />
+          <Input
+            id="age"
+            type="number"
+            placeholder="Enter your age"
+            value={formData.age}
+            onChange={handleChange}
+          />
         </div>
         <div className="grid gap-2">
           <Label htmlFor="height">Height (cm)</Label>
-          <Input id="height" type="number" placeholder="Enter your height" />
+          <Input
+            id="height"
+            type="number"
+            placeholder="Enter your height"
+            value={formData.height}
+            onChange={handleChange}
+          />
         </div>
         <div className="grid gap-2">
           <Label htmlFor="weight">Weight (kg)</Label>
-          <Input id="weight" type="number" placeholder="Enter your weight" />
+          <Input
+            id="weight"
+            type="number"
+            placeholder="Enter your weight"
+            value={formData.weight}
+            onChange={handleChange}
+          />
         </div>
         <Button type="submit" className="w-full">
-          <Link
-            href="/result"
-            className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-            prefetch={false}
-          >
-            Calculate Your Worth
-          </Link>
+          Calculate Your Worth
         </Button>
       </form>
     </Card>

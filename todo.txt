@@ -1,0 +1,8 @@
+Todos:
+Come up with some math and paramters for calculating the worth of a person
+Create mock ads and and place them on optimized positions (read more about this)
+
+UI:
+scrollbar
+general UI work
+Daekmode

@@ -1,8 +1,18 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { worthCalculation } from "@/lib/worthCalculation";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import CountUp from "react-countup";
 
 export default function Result() {
+  const [sheepWorth, setSheepWorth] = useState(42);
+
+  useEffect(() => {
+    worthCalculation(formData);
+  });
+
   return (
     <div className="h-full grid items-center justify-center gap-4 px-4 md:px-6">
       <div className="space-y-3">
@@ -23,11 +33,11 @@ export default function Result() {
           height={50}
         />
         <div className="text-4xl font-bold">
-          <span className="text-primary">42</span> Sheep
+          <CountUp end={sheepWorth} /> Sheep
         </div>
         <p className="text-muted-foreground">
           Congratulations, <span className="font-bold">John Doe</span>! You are
-          worth the equivalent of 42 sheep.
+          worth the equivalent of {sheepWorth} sheep.
         </p>
         <div className="flex gap-2">
           <Button variant="outline" size="sm">
