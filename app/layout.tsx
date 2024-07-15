@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { FormDataProvider } from "@/lib/context/FormDataContext";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -27,11 +28,13 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Header />
-        <FormDataProvider>
-          <main>{children}</main>
-        </FormDataProvider>
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          <FormDataProvider>
+            <main>{children}</main>
+          </FormDataProvider>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

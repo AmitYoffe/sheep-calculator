@@ -4,4 +4,3 @@ Create mock ads and and place them on optimized positions (read more about this)
 
 UI:
 general UI work
-Darkmode
