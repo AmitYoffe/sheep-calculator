@@ -1,11 +1,6 @@
-type metricValues = {
-  name: string;
-  age: number;
-  height: number;
-  weight: number;
-};
+import { FormData } from "./context/FormDataContext";
 
-export function worthCalculation({ name, age, height, weight }: metricValues) {
+export function worthCalculation({ name, age, height, weight }: FormData) {
   const baseWorth = age * height * weight;
 
   // long names should be lower in worth
@@ -27,7 +22,7 @@ export function worthCalculation({ name, age, height, weight }: metricValues) {
   const weightFactor = weight >= 18 && weight <= 64 ? 1.05 : 1;
 
   const adjustedWorth =
-    baseWorth * ageFactor * heightFactor * weightFactor * nameFactor;
+    (baseWorth * ageFactor * heightFactor * weightFactor * nameFactor) / 2000;
 
   return Math.round(adjustedWorth);
 }

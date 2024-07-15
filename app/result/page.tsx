@@ -1,17 +1,20 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useFormData } from "@/lib/context/FormDataContext";
 import { worthCalculation } from "@/lib/worthCalculation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 
 export default function Result() {
+  const { formData } = useFormData();
   const [sheepWorth, setSheepWorth] = useState(42);
 
   useEffect(() => {
-    worthCalculation(formData);
-  });
+    let sheepWorth = worthCalculation(formData);
+    setSheepWorth(sheepWorth);
+  }, [formData]);
 
   return (
     <div className="h-full grid items-center justify-center gap-4 px-4 md:px-6">

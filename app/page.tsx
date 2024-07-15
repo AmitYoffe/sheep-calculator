@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <div className="flex flex-col min-h-dvh scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar">
+    <div className="flex flex-col min-h-dvh">
       <section className="w-full py-6 md:py-12 lg:py-16 border-y">
         <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
           <div>

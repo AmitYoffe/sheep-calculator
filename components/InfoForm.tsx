@@ -1,19 +1,14 @@
 "use client";
+import { useFormData } from "@/lib/context/FormDataContext";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent } from "react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
 export default function InfoForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    age: 0,
-    height: 0,
-    weight: 0,
-  });
-
+  const { formData, setFormData } = useFormData();
   const router = useRouter();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
