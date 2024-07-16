@@ -2,5 +2,9 @@ Todos:
 Come up with some math and paramters for calculating the worth of a person and then
 Create mock ads and and place them on optimized positions (read more about this)
 
+* Langauges
+* Have a recent queries section
+* How we calculate the worth section
+
 UI:
 general UI work
