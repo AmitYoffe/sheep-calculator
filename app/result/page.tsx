@@ -1,4 +1,5 @@
 "use client";
+import FunFacts from "@/components/FunFacts";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useFormData } from "@/lib/context/FormDataContext";
@@ -9,7 +10,7 @@ import CountUp from "react-countup";
 
 export default function Result() {
   const { formData } = useFormData();
-  const [sheepWorth, setSheepWorth] = useState(42);
+  const [sheepWorth, setSheepWorth] = useState(0);
 
   useEffect(() => {
     let sheepWorth = worthCalculation(formData);
@@ -27,7 +28,7 @@ export default function Result() {
           friends!
         </p>
       </div>
-      <Card className="p-6 w-full flex flex-col items-center max-w-md shadow-lg space-y-4">
+      <Card className="p-6 w-full flex flex-col items-center w-full shadow-xl space-y-4">
         <Image
           className="mx-auto aspect-square overflow-hidden rounded-t-xl object-contain"
           src={"../SVGs/sheep.svg"}
@@ -39,18 +40,19 @@ export default function Result() {
           <CountUp end={sheepWorth} /> Sheep
         </div>
         <p className="text-muted-foreground">
-          Congratulations, <span className="font-bold">John Doe</span>! You are
-          worth the equivalent of {sheepWorth} sheep.
+          Congratulations, <span className="font-bold">{formData.name}</span>!
+          You are worth the equivalent of {sheepWorth} sheep.
         </p>
         <div className="flex gap-2">
           <Button variant="outline" size="sm">
             Share on Twitter
           </Button>
           <Button variant="outline" size="sm">
-            Share on Facebook
+            Share on WhatsApp
           </Button>
         </div>
       </Card>
+      <FunFacts />
     </div>
   );
 }

@@ -6,12 +6,9 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { usePathname } from "next/navigation";
 
 export function BreadCrumbs() {
-  const pathName = usePathname();
-
-  return pathName.includes("result") ? (
+  return (
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
@@ -21,7 +18,5 @@ export function BreadCrumbs() {
         <BreadcrumbItem className="cursor-default">Result</BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
-  ) : (
-    <>sheep sheep sheep!</>
   );
 }

@@ -1,14 +1,19 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BreadCrumbs } from "./BreadCrumbs";
 import { DarkModeToggle } from "./DarkModeToggle";
+import PagesMenu from "./PagesMenu";
 
 export default function Header() {
+  const pathName = usePathname();
+
   return (
     <header className="px-2 lg:px-3 h-14 flex items-center">
       <nav className="mr-auto flex gap-4 sm:gap-6 items-center">
         <DarkModeToggle />
-        <BreadCrumbs />
+        {pathName.includes("result") ? <BreadCrumbs /> : <PagesMenu />}
       </nav>
       <Link
         className="flex items-center justify-center"

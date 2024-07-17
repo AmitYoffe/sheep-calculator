@@ -1,9 +1,18 @@
 /* eslint-disable react/no-unescaped-entities */
+"use client";
 import InfoForm from "@/components/InfoForm";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Link from "next/link";
+import { useRef } from "react";
 
 export default function LandingPage() {
+  const bottomSectionRef = useRef<HTMLDivElement>(null);
+
+  const handleScrollToBottom = () => {
+    if (bottomSectionRef.current) {
+      bottomSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="flex flex-col min-h-dvh">
       <section className="w-full py-6 md:py-12 lg:py-16 border-y">
@@ -16,15 +25,12 @@ export default function LandingPage() {
               Find out how much you're worth in sheep with our fun and whimsical
               calculator!
             </p>
-            <div className="mt-6">
-              <Link
-                href="#"
-                className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                prefetch={false}
-              >
-                Calculate Your Worth
-              </Link>
-            </div>
+            <Button
+              onClick={handleScrollToBottom}
+              className="mt-6 inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            >
+              Calculate Your Worth
+            </Button>
           </div>
           <div className="flex flex-col items-center justify-center">
             <Image
@@ -37,7 +43,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-      <section className="w-full py-6 md:py-12 lg:py-16">
+      <section ref={bottomSectionRef} className="w-full py-6 md:py-12 lg:py-16">
         <div className="flex flex-col items-center justify-center space-y-2 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             Find Out Your Sheep Worth
