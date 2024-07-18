@@ -9,7 +9,7 @@ export function calculateNameFactor(name: string) {
     name.length > acceptableNameLength
       ? Math.max(
           minNameFactor,
-          0.9 - (name.length - acceptableNameLength) * decreaseRate
+          1 - (name.length - acceptableNameLength) * decreaseRate
         )
       : 1;
   return nameFactor;

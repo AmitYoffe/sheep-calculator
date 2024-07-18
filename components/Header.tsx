@@ -5,9 +5,11 @@ import { usePathname } from "next/navigation";
 import { BreadCrumbs } from "./BreadCrumbs";
 import { DarkModeToggle } from "./DarkModeToggle";
 import PagesMenu from "./PagesMenu";
+import { useTheme } from "./ThemeProvider";
 
 export default function Header() {
   const pathName = usePathname();
+  const { theme } = useTheme();
 
   return (
     <header className="px-2 lg:px-3 h-14 flex items-center">
@@ -21,7 +23,9 @@ export default function Header() {
         prefetch={false}
       >
         <Image
-          src={"../SVGs/sheep.svg"}
+          src={
+            theme === "dark" ? "../SVGs/whiteSheep.svg" : "../SVGs/sheep.svg"
+          }
           alt="sheep header icon"
           width={30}
           height={30}
