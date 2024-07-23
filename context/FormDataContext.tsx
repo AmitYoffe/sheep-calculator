@@ -5,9 +5,9 @@ type Gender = "male" | "female";
 
 export interface FormData {
   name: string;
-  age: number;
-  height: number;
-  weight: number;
+  age?: number;
+  height?: number;
+  weight?: number;
   // gender: Gender;
 }
 
@@ -23,9 +23,9 @@ const FormDataContext = createContext<FormDataContextProps | undefined>(
 export const FormDataProvider = ({ children }: { children: ReactNode }) => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    age: 0,
-    height: 0,
-    weight: 0,
+    age: undefined,
+    height: undefined,
+    weight: undefined,
     // gender: 'male';
   });
 

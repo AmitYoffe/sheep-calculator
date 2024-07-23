@@ -7,7 +7,7 @@ import { worthCalculation } from "@/lib/math/worthCalculation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
-import FunFacts from "./(components)/FunFacts";
+import FunFacts from "./components/FunFacts";
 
 export default function Result() {
   const { formData } = useFormData();
