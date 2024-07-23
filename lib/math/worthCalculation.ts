@@ -1,4 +1,4 @@
-import { FormData } from "../context/FormDataContext";
+import { FormData } from "../../context/FormDataContext";
 import { gaussian } from "./gaussianBell";
 import { calculateNameFactor } from "./nameFactor";
 

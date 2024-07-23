@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import InfoForm from "@/components/InfoForm";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRef } from "react";
+import InfoForm from "./(pageComponents)/InfoForm";
 
 export default function LandingPage() {
   const bottomSectionRef = useRef<HTMLDivElement>(null);

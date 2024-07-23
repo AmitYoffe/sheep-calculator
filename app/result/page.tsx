@@ -1,12 +1,12 @@
 "use client";
-import FunFacts from "@/components/FunFacts";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { useFormData } from "@/lib/context/FormDataContext";
+import { useFormData } from "@/context/FormDataContext";
 import { worthCalculation } from "@/lib/math/worthCalculation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
+import FunFacts from "./(components)/FunFacts";
 
 export default function Result() {
   const { formData } = useFormData();

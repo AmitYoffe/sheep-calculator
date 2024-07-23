@@ -1,14 +1,13 @@
-"use client";
-import { useFormData } from "@/lib/context/FormDataContext";
+import { useFormData } from "@/context/FormDataContext";
 import { FormErrors, validateForm } from "@/lib/formValidations";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Button } from "./ui/button";
-import { Card } from "./ui/card";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
-import Image from "next/image";
+import { Button } from "../../components/ui/button";
+import { Card } from "../../components/ui/card";
+import { Input } from "../../components/ui/input";
+import { Label } from "../../components/ui/label";
+import { Tabs, TabsList, TabsTrigger } from "../../components/ui/tabs";
 
 export default function InfoForm() {
   const { formData, setFormData } = useFormData();
