@@ -1,4 +1,5 @@
 "use client";
+import { useTheme } from "@/components/layout/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useFormData } from "@/context/FormDataContext";
@@ -11,6 +12,7 @@ import FunFacts from "./(components)/FunFacts";
 export default function Result() {
   const { formData } = useFormData();
   const [sheepWorth, setSheepWorth] = useState(0);
+  const { theme } = useTheme();
 
   useEffect(() => {
     let sheepWorth = worthCalculation(formData);
@@ -31,7 +33,7 @@ export default function Result() {
       <Card className="p-6 w-full flex flex-col items-center shadow-xl space-y-4">
         <Image
           className="mx-auto aspect-square overflow-hidden rounded-t-xl object-contain"
-          src={"../SVGs/sheep.svg"}
+          src={theme === "dark" ? "/SVGs/whiteSheep.svg" : "/SVGs/sheep.svg"}
           alt="Sheep Worth"
           width={50}
           height={50}

@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
+import { useTheme } from "@/components/layout/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRef } from "react";
@@ -7,6 +8,7 @@ import InfoForm from "./(pageComponents)/InfoForm";
 
 export default function LandingPage() {
   const bottomSectionRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
 
   const handleScrollToBottom = () => {
     if (bottomSectionRef.current) {
@@ -15,7 +17,7 @@ export default function LandingPage() {
   };
   return (
     <div className="flex flex-col min-h-dvh">
-      <section className="w-full py-6 md:py-12 lg:py-16 border-y">
+      <section className="w-full py-6 md:py-12 lg:py-16 border-b-2">
         <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
           <div>
             <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
@@ -35,15 +37,17 @@ export default function LandingPage() {
           <div className="flex flex-col items-center justify-center">
             <Image
               className="mx-auto aspect-square overflow-hidden rounded-t-xl object-contain"
-              src={"../SVGs/sheep.svg"}
-              alt="Sheep Hero"
-              width={125}
-              height={125}
+              src={
+                theme === "dark" ? "/SVGs/whiteSheep.svg" : "/SVGs/sheep.svg"
+              }
+              alt="Sheep Calculator"
+              width={180}
+              height={180}
             />
           </div>
         </div>
       </section>
-      <section ref={bottomSectionRef} className="w-full py-6 md:py-12 lg:py-16">
+      <section ref={bottomSectionRef} className="w-full pt-6 md:pt-12 lg:pt-16">
         <div className="flex flex-col items-center justify-center space-y-2 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             Find Out Your Sheep Worth
@@ -56,10 +60,10 @@ export default function LandingPage() {
         <InfoForm />
         <Image
           className="mx-auto aspect-square overflow-hidden rounded-t-xl object-contain"
-          src={"../SVGs/sheep.svg"}
-          alt="Sheep Calculator"
-          width={100}
-          height={100}
+          src={"/images/takeMyMoney.jpg"}
+          alt="Sheep Hero"
+          width={275}
+          height={275}
         />
       </section>
     </div>

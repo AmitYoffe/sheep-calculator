@@ -1,9 +1,5 @@
 Todos:
-* Create mock ads and and place them on optimized positions (read more about this)
+* Langauges?
 
-* How we calculate the worth page with graphs
-* Langauges
-* Have a recent queries section ( do i need DB for this?)
-
-UI:
-Make the sheep icon handle dark mode
+* finish calculation and then explanation graphs!
+* add different animals modes?

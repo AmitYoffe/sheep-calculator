@@ -38,10 +38,10 @@ export default function InfoForm() {
 
   return (
     <Tabs
-      className="shadow-lg mx-auto grid max-w-md items-start my-10"
+      className=" mx-auto grid max-w-md items-start my-10 p-1"
       defaultValue="male"
     >
-      <Card className="p-6 pt-2">
+      <Card className="p-6 pt-2 shadow-lg">
         <TabsList className="grid w-full grid-cols-2 mb-5">
           <TabsTrigger value="male" className="gap-2">
             <Image

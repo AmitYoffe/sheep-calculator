@@ -12,7 +12,7 @@ export default function Header() {
   const { theme } = useTheme();
 
   return (
-    <header className="px-2 lg:px-3 h-14 flex items-center">
+    <header className="px-2 lg:px-3 h-14 flex items-center border-b-2">
       <nav className="mr-auto flex gap-4 sm:gap-6 items-center">
         <DarkModeToggle />
         {pathName.includes("result") ? <BreadCrumbs /> : <PagesMenu />}
@@ -23,9 +23,7 @@ export default function Header() {
         prefetch={false}
       >
         <Image
-          src={
-            theme === "dark" ? "../SVGs/whiteSheep.svg" : "../SVGs/sheep.svg"
-          }
+          src={theme === "dark" ? "/SVGs/whiteSheep.svg" : "/SVGs/sheep.svg"}
           alt="sheep header icon"
           width={30}
           height={30}
