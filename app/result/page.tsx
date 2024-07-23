@@ -28,7 +28,7 @@ export default function Result() {
           friends!
         </p>
       </div>
-      <Card className="p-6 w-full flex flex-col items-center w-full shadow-xl space-y-4">
+      <Card className="p-6 w-full flex flex-col items-center shadow-xl space-y-4">
         <Image
           className="mx-auto aspect-square overflow-hidden rounded-t-xl object-contain"
           src={"../SVGs/sheep.svg"}
