@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import CalculateWorthButton from "./components/CalculateWorthButton";
 import InfoForm from "./components/InfoForm";
+import SheepSvg from "@/components/layout/dynamicSvgs/SheepSvg";
 
 export default function LandingPage() {
   const bottomSectionRef = useRef<HTMLDivElement>(null);
@@ -29,17 +30,7 @@ export default function LandingPage() {
             </p>
             <CalculateWorthButton handleScrollToBottom={handleScrollToBottom} />
           </div>
-          <div className="flex flex-col items-center justify-center">
-            <Image
-              className="mx-auto aspect-square overflow-hidden rounded-t-xl object-contain"
-              src={
-                theme === "dark" ? "/SVGs/whiteSheep.svg" : "/SVGs/sheep.svg"
-              }
-              alt="Sheep Calculator"
-              width={180}
-              height={180}
-            />
-          </div>
+          <SheepSvg theme={theme} className="size-60" />
         </div>
       </section>
       <section ref={bottomSectionRef} className="w-full pt-6 md:pt-12 lg:pt-16">

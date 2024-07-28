@@ -1,5 +1,5 @@
 Todos:
 * Langauges?
 
-* finish calculation and then explanation graphs!
-* add different animals modes?
+* finish calculation logic and then explanation graphs!
+* add different animal modes?

@@ -1,28 +1,36 @@
 "use client";
+import SheepSvg from "@/components/layout/dynamicSvgs/SheepSvg";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useFormData } from "@/context/FormDataContext";
 import { worthCalculation } from "@/lib/math/worthCalculation";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import FunFacts from "./components/FunFacts";
 
 export default function Result() {
-  const { formData } = useFormData();
+  const { formData, setFormData } = useFormData();
   const [sheepWorth, setSheepWorth] = useState(0);
-  const { theme } = useTheme();
 
   useEffect(() => {
     let sheepWorth = worthCalculation(formData);
     setSheepWorth(sheepWorth);
-  }, [formData]);
+
+    // Reset formData after calculating sheep worth
+    // setFormData({
+    //   name: "",
+    //   age: undefined,
+    //   height: undefined,
+    //   weight: undefined,
+    //   gender: "male",
+    // });
+  }, [formData, setFormData]);
 
   return (
     <div className="h-full grid items-center justify-center gap-4 px-4 md:px-6">
       <div className="space-y-3">
-        <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+        <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight mt-2">
           Your Sheep Worth Revealed!
         </h2>
         <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -31,13 +39,7 @@ export default function Result() {
         </p>
       </div>
       <Card className="p-6 w-full flex flex-col items-center shadow-xl space-y-4">
-        <Image
-          className="mx-auto aspect-square overflow-hidden rounded-t-xl object-contain"
-          src={theme === "dark" ? "/SVGs/whiteSheep.svg" : "/SVGs/sheep.svg"}
-          alt="Sheep Worth"
-          width={50}
-          height={50}
-        />
+        <SheepSvg className="size-12" />
         <div className="text-4xl font-bold">
           <CountUp end={sheepWorth} /> Sheep
         </div>

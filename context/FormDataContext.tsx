@@ -1,14 +1,14 @@
 "use client";
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
-type Gender = "male" | "female";
+export type Gender = "male" | "female";
 
 export interface FormData {
   name: string;
   age?: number;
   height?: number;
   weight?: number;
-  // gender: Gender;
+  gender: Gender;
 }
 
 interface FormDataContextProps {
@@ -26,7 +26,7 @@ export const FormDataProvider = ({ children }: { children: ReactNode }) => {
     age: undefined,
     height: undefined,
     weight: undefined,
-    // gender: 'male';
+    gender: "male",
   });
 
   return (

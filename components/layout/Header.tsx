@@ -1,11 +1,11 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BreadCrumbs } from "./BreadCrumbs";
 import { DarkModeToggle } from "./DarkModeToggle";
 import PagesMenu from "./PagesMenu";
 import { useTheme } from "./ThemeProvider";
+import SheepSvg from "./dynamicSvgs/SheepSvg";
 
 export default function Header() {
   const pathName = usePathname();
@@ -22,12 +22,7 @@ export default function Header() {
         href="/"
         prefetch={false}
       >
-        <Image
-          src={theme === "dark" ? "/SVGs/whiteSheep.svg" : "/SVGs/sheep.svg"}
-          alt="sheep header icon"
-          width={30}
-          height={30}
-        />
+        <SheepSvg theme={theme} className="size-8" />
         <span className="sr-only">Sheep Worth Calculator</span>
       </Link>
     </header>
