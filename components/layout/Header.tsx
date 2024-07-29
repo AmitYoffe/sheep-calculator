@@ -22,7 +22,7 @@ export default function Header() {
         href="/"
         prefetch={false}
       >
-        <SheepSvg theme={theme} className="size-8" />
+        <SheepSvg className="size-8" />
         <span className="sr-only">Sheep Worth Calculator</span>
       </Link>
     </header>

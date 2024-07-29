@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
+import SheepSvg from "@/components/layout/dynamicSvgs/SheepSvg";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import Image from "next/image";
 import { useRef } from "react";
 import CalculateWorthButton from "./components/CalculateWorthButton";
 import InfoForm from "./components/InfoForm";
-import SheepSvg from "@/components/layout/dynamicSvgs/SheepSvg";
 
 export default function LandingPage() {
   const bottomSectionRef = useRef<HTMLDivElement>(null);
@@ -30,7 +30,7 @@ export default function LandingPage() {
             </p>
             <CalculateWorthButton handleScrollToBottom={handleScrollToBottom} />
           </div>
-          <SheepSvg theme={theme} className="size-60" />
+          <SheepSvg className="size-60" />
         </div>
       </section>
       <section ref={bottomSectionRef} className="w-full pt-6 md:pt-12 lg:pt-16">
