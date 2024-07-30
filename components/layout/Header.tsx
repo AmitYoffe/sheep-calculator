@@ -4,12 +4,10 @@ import { usePathname } from "next/navigation";
 import { BreadCrumbs } from "./BreadCrumbs";
 import { DarkModeToggle } from "./DarkModeToggle";
 import PagesMenu from "./PagesMenu";
-import { useTheme } from "./ThemeProvider";
 import SheepSvg from "./dynamicSvgs/SheepSvg";
 
 export default function Header() {
   const pathName = usePathname();
-  const { theme } = useTheme();
 
   return (
     <header className="px-2 lg:px-3 h-14 flex items-center border-b-2">
